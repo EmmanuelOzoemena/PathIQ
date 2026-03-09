@@ -201,7 +201,6 @@ const StudentDashboard = () => {
               </div>
 
               <div className="flex items-center gap-6">
-                {/* Topic Icon/Image Placeholder */}
                 <img
                   className="w-26 h-16 object-cover"
                   src={maths}
@@ -234,9 +233,9 @@ const StudentDashboard = () => {
                   </div>
                 </div>
 
-                <Button className="px-6 py-2 bg-[#0A2684] text-xs">
+                <button className="px-12 py-2 bg-[#0A2684] text-white text-[10px] font-bold rounded-md hover:bg-blue-900 transition-colors cursor-pointer">
                   Resume
-                </Button>
+                </button>
               </div>
             </div>
 
@@ -254,10 +253,10 @@ const StudentDashboard = () => {
                 <div className="bg-white p-4 border border-gray-100 rounded-2xl shadow-sm flex gap-4">
                   {/* INSERT IMAGE: src/assets/physics-book.png */}
                   <img
-                  className="w-26 h-16 object-cover"
-                  src={physics}
-                  alt="physics-mock"
-                />
+                    className="w-26 h-16 object-cover"
+                    src={physics}
+                    alt="physics-mock"
+                  />
                   <div className="flex flex-col justify-between flex-grow">
                     <div>
                       <div className="flex justify-between">
@@ -284,10 +283,10 @@ const StudentDashboard = () => {
                 {/* Card 2 */}
                 <div className="bg-white p-4 border border-gray-100 rounded-2xl shadow-sm flex gap-4">
                   <img
-                  className="w-26 h-16 object-cover"
-                  src={english}
-                  alt="english-mock"
-                />
+                    className="w-26 h-16 object-cover"
+                    src={english}
+                    alt="english-mock"
+                  />
 
                   <div className="flex flex-col justify-between flex-grow">
                     <div>
@@ -313,7 +312,6 @@ const StudentDashboard = () => {
                 </div>
               </div>
             </div>
-
           </div>
 
           {/* RIGHT COLUMN: Info Panel */}
