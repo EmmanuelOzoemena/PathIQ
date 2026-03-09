@@ -1,25 +1,23 @@
-import React from 'react';
+import React from "react";
 
-const RecommendationCard = ({ 
-  image, 
-  subject, 
-  title, 
-  badgeText, 
-  badgeVariant, 
-  buttonText, 
-  onClick 
+const RecommendationCard = ({
+  image,
+  subject,
+  title,
+  badgeText,
+  badgeVariant,
+  buttonText,
+  onClick,
 }) => {
-  // Define badge styles based on variant
   const badgeStyles = {
     danger: "bg-red-50 text-red-500",
     info: "bg-indigo-50 text-indigo-500",
   };
 
   return (
-    <div className="bg-white p-4 border border-gray-100 rounded-2xl shadow-sm flex gap-4">
-      {/* Image Section */}
+    <div className="bg-white p-4 border border-gray-100 rounded-2xl shadow-sm flex flex-col sm:flex-row gap-4 h-full">
       <img
-        className="w-26 h-16 object-cover rounded-lg flex-shrink-0"
+        className="w-full h-32 sm:w-26 sm:h-16 object-cover rounded-lg flex-shrink-0"
         src={image}
         alt={`${title}-thumbnail`}
       />
@@ -30,23 +28,24 @@ const RecommendationCard = ({
             <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
               {subject}
             </p>
-            <button className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer">
+            <button className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer p-1">
               •••
             </button>
           </div>
-          <h4 className="text-sm font-bold text-[#0A2684] mt-0.5 leading-tight">
+          <h4 className="text-sm font-bold text-[#0A2684] mt-1 leading-tight">
             {title}
           </h4>
         </div>
 
-        {/* Action Row */}
-        <div className="flex items-center gap-2 mt-3">
-          <span className={`text-[9px] px-3 py-1.5 rounded font-bold whitespace-nowrap ${badgeStyles[badgeVariant]}`}>
+        <div className="flex flex-wrap items-center gap-2 mt-4 sm:mt-3">
+          <span
+            className={`text-[9px] px-3 py-1.5 rounded font-bold whitespace-nowrap ${badgeStyles[badgeVariant]}`}
+          >
             {badgeText}
           </span>
-          <button 
+          <button
             onClick={onClick}
-            className="text-[10px] bg-[#0A2684] text-white px-4 py-1.5 rounded-md font-bold cursor-pointer hover:bg-blue-900 transition-all active:scale-95 whitespace-nowrap"
+            className="flex-1 sm:flex-none text-[10px] bg-[#0A2684] text-white px-4 py-1.5 rounded-md font-bold cursor-pointer hover:bg-blue-900 transition-all active:scale-95 whitespace-nowrap"
           >
             {buttonText}
           </button>

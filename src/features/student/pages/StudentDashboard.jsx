@@ -18,13 +18,14 @@ const StudentDashboard = () => {
   return (
     <DashboardLayout>
       <div className="p-8">
-        <div className="flex gap-8">
+        <div className="grid grid-cols-1 lg:flex lg:gap-8 p-4 md:p-6 lg:p-8">
           {/* MAIN CONTENT AREA */}
-          <div className="flex-[2] space-y-8">
+          <div className="w-full lg:flex-[2] space-y-8 order-1">
             {/* Welcome Section */}
-            <div className="flex justify-between items-end">
+            <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-6 lg:gap-0">
+              {/* Greeting Section */}
               <div>
-                <h2 className="text-3xl font-bold text-[#0A2684] flex items-center gap-2">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#0A2684] flex items-center gap-2">
                   Good Morning, Tasha{" "}
                   <svg
                     width="34"
@@ -87,24 +88,29 @@ const StudentDashboard = () => {
                     />
                   </svg>
                 </h2>
-                <p className="text-gray-400 font-medium">
+                <p className="text-gray-400 font-medium text-sm md:text-base mt-1">
                   Ready to continue learning?
                 </p>
               </div>
-              <div className="block">
-                <div className="text-right mb-4">
-                  <p className="text-gray-400 text-2xl">
+
+              {/* Exam Date & Actions Section */}
+              <div className="flex flex-col items-start lg:items-end w-full lg:w-auto">
+                <div className="text-left lg:text-right mb-4">
+                  <p className="text-gray-400 text-lg md:text-2xl">
                     Exam Date:{" "}
-                    <span className="font-bold text-gray-700">
+                    <span className="font-bold text-gray-700 whitespace-nowrap">
                       14 April, 2026
                     </span>
                   </p>
                 </div>
-                <div className="flex gap-2">
-                  <Button className="py-2 px-8 text-xs bg-[#0A2684]">
+                <div className="flex flex-wrap gap-3 w-full sm:w-auto">
+                  <Button className="flex-1 sm:flex-none py-2 px-6 md:px-8 text-xs bg-[#0A2684]">
                     Start Practice
                   </Button>
-                  <Button variant="outline" className="py-2 px-8 text-xs">
+                  <Button
+                    variant="outline"
+                    className="flex-1 sm:flex-none py-2 px-6 md:px-8 text-xs"
+                  >
                     Take a Quiz
                   </Button>
                 </div>
@@ -112,9 +118,9 @@ const StudentDashboard = () => {
             </div>
 
             {/* Top Stats Cards */}
-            <div className="grid grid-cols-4 gap-4">
-              {/* JAMB Readiness Card */}
-              <div className="p-4 border border-gray-100 rounded-xl bg-white shadow-sm flex flex-col items-center text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+              {/* JAMB Readiness */}
+              <div className="p-4 border border-gray-100 rounded-xl bg-white shadow-sm flex flex-col items-center text-center h-full">
                 <p className="text-[10px] text-gray-400 font-bold mb-4 uppercase">
                   JAMB Readiness Score
                 </p>
@@ -126,36 +132,34 @@ const StudentDashboard = () => {
                 </p>
               </div>
 
-              {/* Weakness Subject card */}
+              {/*  Weakest Subject */}
               <WeakestSubjectCard subject="Physics" />
 
-              {/* Core Courses card */}
-              <div className="p-4 border border-gray-100 rounded-xl bg-white shadow-sm flex flex-col items-center text-center">
+              {/* Core Courses */}
+              <div className="p-4 border border-gray-100 rounded-xl bg-white shadow-sm flex flex-col items-center text-center h-full">
                 <div className="flex justify-between w-full items-start mb-2">
-                  <p className="text-[10px] text-gray-400 font-bold uppercase">
+                  <p className="text-[10px] text-gray-400 font-bold uppercase text-left">
                     Core Courses (4)
                   </p>
-                  <button className="text-blue-600 text-xs">•••</button>
+                  <button className="text-gray-400">•••</button>
                 </div>
-                <p className="text-sm font-bold text-[#0A2684] leading-tight mt-4 mb-6">
+                <p className="text-sm font-bold text-[#0A2684] leading-tight mt-2">
                   Eng, Math, Phy, Chem
                 </p>
-                <div className="w-full bg-blue-100 h-1 rounded-full mt-4 overflow-hidden">
+                <div className="w-full bg-blue-100 h-1.5 rounded-full mt-4 overflow-hidden">
                   <div className="bg-blue-400 h-full w-[60%]"></div>
                 </div>
               </div>
 
-              {/*  Study Time card */}
-              <div className="p-4 border border-gray-100 rounded-xl bg-white shadow-sm flex flex-col items-center text-center">
+              {/* Study Time */}
+              <div className="p-4 border border-gray-100 rounded-xl bg-white shadow-sm flex flex-col items-center text-center h-full">
                 <div className="flex justify-between w-full items-start mb-2">
-                  <p className="text-[10px] text-gray-400 font-bold uppercase">
+                  <p className="text-[10px] text-gray-400 font-bold uppercase text-left">
                     Study Time
                   </p>
-                  <div className="w-4 h-0.5 bg-blue-900"></div>
+                  <div className="w-2 h-0.5 bg-blue-900"></div>
                 </div>
-                <p className="text-xl font-bold text-gray-800 mt-4 mb-6">
-                  4h 30m
-                </p>
+                <p className="text-xl font-bold text-gray-800 mt-2">4h 30m</p>
                 <p className="text-[10px] text-gray-400 mt-1 font-medium">
                   This Week
                 </p>
@@ -164,11 +168,11 @@ const StudentDashboard = () => {
 
             {/* Your JAMB Subjects Section */}
             <div className="mt-8">
-              <h3 className="font-bold text-gray-800 mb-4 text-lg">
+              <h3 className="font-bold text-gray-800 mb-4 text-lg px-2 lg:px-0">
                 Your JAMB Subjects
               </h3>
 
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <SubjectCard
                   title="English"
                   progress={75}
@@ -193,23 +197,38 @@ const StudentDashboard = () => {
             </div>
 
             {/* Continue Learning Section */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="font-bold text-gray-800">Continue Learning</h3>
-                <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded font-bold">
+            <div className="bg-white border border-gray-100 rounded-2xl p-4 md:p-6 shadow-sm mt-8">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="font-bold text-gray-800 text-sm md:text-base">
+                  Continue Learning
+                </h3>
+                <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded font-bold uppercase tracking-wider">
                   JAMB Topic
                 </span>
               </div>
 
-              <div className="flex items-center gap-6">
-                <img
-                  className="w-26 h-16 object-cover"
-                  src={maths}
-                  alt="quadratic-equation"
-                />
+              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-20 h-14 md:w-26 md:h-16 flex-shrink-0 rounded-lg overflow-hidden border border-gray-50">
+                    <img
+                      className="w-full h-full object-cover"
+                      src={maths}
+                      alt="quadratic-equation"
+                    />
+                  </div>
+
+                  <div className="md:hidden">
+                    <p className="text-xs font-bold text-gray-800">
+                      Mathematics
+                    </p>
+                    <p className="text-[11px] text-gray-500 truncate max-w-[150px]">
+                      Quadratic Equations
+                    </p>
+                  </div>
+                </div>
 
                 <div className="flex-grow">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="hidden md:flex items-center gap-2 mb-2">
                     <span className="text-sm font-bold text-gray-800">
                       Mathematics
                     </span>
@@ -218,31 +237,32 @@ const StudentDashboard = () => {
                       Quadratic Equations
                     </span>
                   </div>
+
                   <div className="flex items-center gap-4">
-                    <div className="flex-grow h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="flex-grow h-2 bg-gray-50 rounded-full overflow-hidden border border-gray-100">
                       <div
-                        className="bg-blue-400 h-full"
+                        className="bg-blue-400 h-full rounded-full transition-all duration-700"
                         style={{ width: "82%" }}
                       ></div>
                     </div>
-                    <span className="text-xs font-bold text-gray-700">
+                    <span className="text-xs font-bold text-gray-700 whitespace-nowrap">
                       82%{" "}
-                      <span className="text-gray-400 font-medium">
+                      <span className="hidden sm:inline text-gray-400 font-medium">
                         Complete
                       </span>
                     </span>
                   </div>
                 </div>
 
-                <button className="px-12 py-2 bg-[#0A2684] text-white text-[10px] font-bold rounded-md hover:bg-blue-900 transition-colors cursor-pointer">
+                <button className="w-full md:w-auto px-8 lg:px-12 py-2.5 md:py-2 bg-[#0A2684] text-white text-[10px] font-bold rounded-md hover:bg-blue-900 transition-all active:scale-95 cursor-pointer shadow-sm">
                   Resume
                 </button>
               </div>
             </div>
 
             {/* Recommended For You Section */}
-            <div className="mt-8">
-              <div className="flex justify-between items-center mb-4">
+            <div className="mt-8 mb-10">
+              <div className="flex justify-between items-center mb-4 px-2 sm:px-0">
                 <h3 className="font-bold text-gray-800 text-lg">
                   Recommended For You
                 </h3>
@@ -251,7 +271,7 @@ const StudentDashboard = () => {
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 <RecommendationCard
                   image={physics}
                   subject="Physics"
@@ -276,7 +296,7 @@ const StudentDashboard = () => {
           </div>
 
           {/* RIGHT COLUMN: Info Panel */}
-          <div className="w-80 space-y-6">
+          <div className="w-full lg:w-80 space-y-6 order-2">
             {/* JAMB Countdown */}
             <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
               <div className="flex justify-between mb-4">
