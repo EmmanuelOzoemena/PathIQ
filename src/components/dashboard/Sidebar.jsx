@@ -15,17 +15,17 @@ import {
 const Sidebar = () => {
   const menuItems = [
     { name: "Dashboard", icon: <HiOutlineViewGrid />, path: "/dashboard" },
-    { name: "Courses", icon: <HiOutlineBookOpen />, path: "/courses" },
+    { name: "Courses", icon: <HiOutlineBookOpen />, path: "/unavailable" },
     {
       name: "Learning Path",
       icon: <HiOutlineAcademicCap />,
-      path: "/learning-path",
+      path: "/unavailable",
     },
-    { name: "Assessment", icon: <HiOutlineChartBar />, path: "/assessment" },
-    { name: "Progress", icon: <HiOutlineClock />, path: "/progress" },
-    { name: "Planner", icon: <HiOutlineCalendar />, path: "/planner" },
+    { name: "Assessment", icon: <HiOutlineChartBar />, path: "/unavailable" },
+    { name: "Progress", icon: <HiOutlineClock />, path: "/unavailable" },
+    { name: "Planner", icon: <HiOutlineCalendar />, path: "/unavailable" },
     // { name: "Reward", icon: <HiOutlineTrophy />, path: "/reward" },
-    { name: "Subscription", icon: <HiOutlineUsers />, path: "/subscription" },
+    { name: "Subscription", icon: <HiOutlineUsers />, path: "/unavailable" },
   ];
 
   return (

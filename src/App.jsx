@@ -5,6 +5,7 @@ import SelectRole from "./features/onboarding/pages/SelectRole";
 import AccountDetails from "./features/onboarding/pages/AccountDetails";
 import SignIn from "./features/onboarding/pages/SignIn";
 import StudentDashboard from "./features/student/pages/StudentDashboard";
+import PageUnavailable from "./features/dashboard/pages/PageUnavailable";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
 
         {/* Dashboard Routes */}
         <Route path="/dashboard" element={<StudentDashboard />} />
+
+        <Route path="/unavailable" element={<PageUnavailable />} />
       </Routes>
     </>
   );
