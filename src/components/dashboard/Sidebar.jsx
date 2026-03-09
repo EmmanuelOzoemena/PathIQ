@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   HiOutlineViewGrid,
   HiOutlineBookOpen,
@@ -9,12 +9,15 @@ import {
   HiOutlineCalendar,
   HiOutlineUsers,
   HiOutlineLogout,
+  HiOutlineUserGroup,
   HiX,
 } from "react-icons/hi";
 import { HiOutlineTrophy } from "react-icons/hi2";
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
-  const menuItems = [
+  const location = useLocation();
+
+  const studentLinks = [
     { name: "Dashboard", icon: <HiOutlineViewGrid />, path: "/dashboard" },
     { name: "Courses", icon: <HiOutlineBookOpen />, path: "/unavailable" },
     {
@@ -29,9 +32,33 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
     { name: "Subscription", icon: <HiOutlineUsers />, path: "/unavailable" },
   ];
 
+  const parentLinks = [
+    {
+      name: "Parent Dashboard",
+      icon: <HiOutlineViewGrid />,
+      path: "/parent-dashboard",
+    },
+    { name: "My Ward", icon: <HiOutlineUsers />, path: "/my-ward" },
+    {
+      name: "Performance",
+      icon: <HiOutlineChartBar />,
+      path: "/performance",
+    },
+    { name: "Engagement", icon: <HiOutlineClock />, path: "/engagement" },
+    {
+      name: "Subscription",
+      icon: <HiOutlineUserGroup />,
+      path: "/subscription",
+    },
+  ];
+
+  const isParentView = location.pathname.startsWith("/parent-dashboard");
+
+  const menuItems = isParentView ? parentLinks : studentLinks;
+
   return (
     <>
-      {/* Mobile Overlay (Darkens background when sidebar is open) */}
+      {/* Mobile Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 lg:hidden transition-opacity"
@@ -41,10 +68,10 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
 
       <aside
         className={`
-        fixed inset-y-0 left-0 z-40 w-64 bg-[#F8F9FD] border-r border-gray-100 flex flex-col justify-between py-8 px-6 transition-transform duration-300 ease-in-out transform
-        lg:translate-x-0 lg:static lg:inset-auto
-        ${isOpen ? "translate-x-0" : "-translate-x-full"}
-      `}
+          fixed inset-y-0 left-0 z-40 w-64 bg-[#F8F9FD] border-r border-gray-100 flex flex-col justify-between py-8 px-6 transition-transform duration-300 ease-in-out transform
+          lg:translate-x-0 lg:static lg:inset-auto
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+        `}
       >
         <div>
           <div className="flex items-center justify-between mb-12 px-4">
@@ -59,7 +86,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               <NavLink
                 key={item.name}
                 to={item.path}
-                onClick={closeSidebar} // Close sidebar when a link is clicked
+                onClick={closeSidebar}
                 className={({ isActive }) => `
                   flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all
                   ${

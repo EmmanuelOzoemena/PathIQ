@@ -40,7 +40,7 @@ const PageUnavailable = () => {
 
         {/* Decorative element */}
         <div className="mt-12 opacity-20 grayscale">
-            {/* You can put a small Path IQ logo or watermark here */}
+            {/* Path IQ logo */}
             <p className="text-xs font-bold tracking-widest uppercase">Path IQ Beta v1.0</p>
         </div>
       </div>
