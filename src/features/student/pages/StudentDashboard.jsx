@@ -1,10 +1,6 @@
 import React from "react";
 import DashboardLayout from "../../../layouts/DashboardLayout";
-import {
-  HiOutlineChevronRight,
-  HiOutlineBookOpen,
-  HiOutlineCalendar,
-} from "react-icons/hi";
+import { HiOutlineChevronRight } from "react-icons/hi";
 import { Button } from "../../../components/ui/Button";
 import WeakestSubjectCard from "../components/StatCards";
 import SubjectCard from "../components/SubjectCard";
@@ -13,6 +9,8 @@ import maths from "../../../assets/maths.jpg";
 import physics from "../../../assets/physics.jpg";
 import english from "../../../assets/english.jpg";
 import RecommendationCard from "../components/RecommendationCard";
+import { Countdown } from "../../dashboard/shared/Countdown";
+import { ProgressBar } from "../../dashboard/shared/ProgressBar";
 
 const StudentDashboard = () => {
   return (
@@ -298,33 +296,10 @@ const StudentDashboard = () => {
           {/* RIGHT COLUMN: Info Panel */}
           <div className="w-full lg:w-80 space-y-6 order-2">
             {/* JAMB Countdown */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-              <div className="flex justify-between mb-4">
-                <p className="text-xs font-bold text-gray-800 uppercase">
-                  JAMB Countdown
-                </p>
-                <HiOutlineCalendar className="text-gray-400" />
-              </div>
-              <div className="bg-[#0A2684] text-white p-4 rounded-xl text-center">
-                <p className="text-4xl font-bold">45</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest mt-1">
-                  Days Left
-                </p>
-              </div>
-              <p className="text-[10px] text-center text-gray-400 mt-4 font-medium uppercase tracking-wider">
-                Exam: 14 April, 2026
-              </p>
-            </div>
+            <Countdown />
 
             {/* Progress Bar Container */}
-            <div className="flex items-center gap-3">
-              <div className="flex-grow h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className="bg-blue-400 h-full rounded-full transition-all duration-500"
-                  style={{ width: "65%" }}
-                ></div>
-              </div>
-            </div>
+            <ProgressBar />
 
             {/* Today's Tasks */}
             <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">

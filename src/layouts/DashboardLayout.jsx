@@ -8,16 +8,18 @@ const DashboardLayout = ({ children }) => {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="flex min-h-screen bg-[#FDFDFF]">
+    <div className="flex h-screen bg-[#FDFDFF] overflow-hidden">
       <Sidebar
         isOpen={isSidebarOpen}
         closeSidebar={() => setIsSidebarOpen(false)}
       />
 
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 h-full">
         <Header toggleSidebar={toggleSidebar} />
 
-        <main className="flex-1 overflow-x-hidden">{children}</main>
+        <main className="flex-1 overflow-y-auto overflow-x-hidden">
+          <div className="max-w-[1600px] mx-auto">{children}</div>
+        </main>
       </div>
     </div>
   );
