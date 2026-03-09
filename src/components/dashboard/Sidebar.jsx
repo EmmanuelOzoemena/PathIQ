@@ -11,6 +11,7 @@ import {
   HiOutlineUsers,
   HiOutlineLogout,
 } from "react-icons/hi";
+import { HiOutlineTrophy } from 'react-icons/hi2';
 
 const Sidebar = () => {
   const menuItems = [
@@ -24,7 +25,7 @@ const Sidebar = () => {
     { name: "Assessment", icon: <HiOutlineChartBar />, path: "/unavailable" },
     { name: "Progress", icon: <HiOutlineClock />, path: "/unavailable" },
     { name: "Planner", icon: <HiOutlineCalendar />, path: "/unavailable" },
-    // { name: "Reward", icon: <HiOutlineTrophy />, path: "/reward" },
+    { name: "Reward", icon: <HiOutlineTrophy />, path: "/unavailable" },
     { name: "Subscription", icon: <HiOutlineUsers />, path: "/unavailable" },
   ];
 
