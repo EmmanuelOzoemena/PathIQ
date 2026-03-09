@@ -7,7 +7,7 @@ import {
   HiOutlineChartBar,
   HiOutlineClock,
   HiOutlineCalendar,
-  HiOutlineTrophy,
+//   HiOutlineTrophy,
   HiOutlineUsers,
   HiOutlineLogout,
 } from "react-icons/hi";
@@ -24,7 +24,7 @@ const Sidebar = () => {
     { name: "Assessment", icon: <HiOutlineChartBar />, path: "/assessment" },
     { name: "Progress", icon: <HiOutlineClock />, path: "/progress" },
     { name: "Planner", icon: <HiOutlineCalendar />, path: "/planner" },
-    { name: "Reward", icon: <HiOutlineTrophy />, path: "/reward" },
+    // { name: "Reward", icon: <HiOutlineTrophy />, path: "/reward" },
     { name: "Subscription", icon: <HiOutlineUsers />, path: "/subscription" },
   ];
 

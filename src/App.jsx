@@ -4,13 +4,15 @@ import SelectRole from "./features/onboarding/pages/SelectRole";
 // import StudentDetails from "./features/onboarding/pages/StudentDetails";
 import AccountDetails from "./features/onboarding/pages/AccountDetails";
 import SignIn from "./features/onboarding/pages/SignIn";
+import StudentDashboard from "./features/student/pages/StudentDashboard";
 
 function App() {
   return (
     <>
       <Routes>
         {/* Default route (redirects to signup) */}
-        <Route path="/" element={<Navigate to="/signup" />} />
+        {/* <Route path="/" element={<Navigate to="/signup" />} /> */}
+        <Route path="/" element={<StudentDashboard />} />
 
         {/* Onboarding Screens */}
         <Route path="/signup" element={<SignUp />} />
@@ -20,6 +22,9 @@ function App() {
         <Route path="/signup/details" element={<AccountDetails />} />
 
         <Route path="/signin" element={<SignIn />} />
+
+        {/* Dashboard Routes */}
+        <Route path="/dashboard" element={<StudentDashboard />} />
       </Routes>
     </>
   );
