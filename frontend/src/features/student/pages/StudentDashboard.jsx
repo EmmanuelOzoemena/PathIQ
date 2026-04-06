@@ -102,15 +102,24 @@ const StudentDashboard = () => {
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-3 w-full sm:w-auto">
-                  <Button className="flex-1 sm:flex-none py-2 px-6 md:px-8 text-xs bg-[#0A2684]">
+                  {/* <Button className="flex-1 sm:flex-none py-2 px-6 md:px-8 text-xs bg-[#0A2684]">
                     Start Practice
                   </Button>
+
                   <Button
                     variant="outline"
                     className="flex-1 sm:flex-none py-2 px-6 md:px-8 text-xs"
                   >
                     Take a Quiz
-                  </Button>
+                  </Button> */}
+
+                  <button className="w-full md:w-auto px-8 lg:px-12 py-2.5 md:py-2 bg-[#0A2684] text-white text-[10px] font-bold rounded-md hover:bg-blue-900 transition-all active:scale-95 cursor-pointer shadow-sm">
+                    Start Practice
+                  </button>
+
+                  <button className="w-full md:w-auto px-8 lg:px-12 py-2.5 md:py-3 bg-white text-[#0A2684] text-[10px] font-bold rounded-md transition-all active:scale-95 cursor-pointer shadow-sm">
+                   Take a Quiz
+                  </button>
                 </div>
               </div>
             </div>
@@ -141,10 +150,10 @@ const StudentDashboard = () => {
                   </p>
                   <button className="text-gray-400">•••</button>
                 </div>
-                <p className="text-sm font-bold text-[#0A2684] leading-tight mt-2">
+                <p className="text-xl font-bold text-[#0A2684] leading-tight mt-4">
                   Eng, Math, Phy, Chem
                 </p>
-                <div className="w-full bg-blue-100 h-1.5 rounded-full mt-4 overflow-hidden">
+                <div className="w-full bg-blue-100 h-1.5 rounded-full mt-8 overflow-hidden">
                   <div className="bg-blue-400 h-full w-[60%]"></div>
                 </div>
               </div>
@@ -157,8 +166,8 @@ const StudentDashboard = () => {
                   </p>
                   <div className="w-2 h-0.5 bg-blue-900"></div>
                 </div>
-                <p className="text-xl font-bold text-gray-800 mt-2">4h 30m</p>
-                <p className="text-[10px] text-gray-400 mt-1 font-medium">
+                <p className="text-2xl font-bold text-gray-800 mt-4">4h 30m</p>
+                <p className="text-[10px] text-gray-400 mt-6 font-medium">
                   This Week
                 </p>
               </div>

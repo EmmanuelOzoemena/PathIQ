@@ -4,7 +4,7 @@ const DefaultSidebar = () => {
   return (
     <div>
       <h1 className="text-2xl font-bold tracking-tight mb-8">
-        Path <br /> IQ
+        PathIQ
       </h1>
 
       <span className="inline-block border border-white/30 rounded-full px-4 py-1 text-sm mb-6">

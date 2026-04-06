@@ -17,7 +17,7 @@ const DashboardLayout = ({ children }) => {
       <div className="flex-1 flex flex-col min-w-0 h-full">
         <Header toggleSidebar={toggleSidebar} />
 
-        <main className="flex-1 overflow-y-auto overflow-x-hidden">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-gray-100">
           <div className="max-w-[1600px] mx-auto">{children}</div>
         </main>
       </div>

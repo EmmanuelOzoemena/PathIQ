@@ -3,6 +3,7 @@ import {
   HiOutlineSearch,
   HiOutlineBell,
   HiOutlineCog,
+  
   HiMenuAlt2,
 } from "react-icons/hi";
 import profilePic from "../../assets/avatar.jpg";
