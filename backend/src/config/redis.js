@@ -1,0 +1,1 @@
+// You can configure Redis here if needed
