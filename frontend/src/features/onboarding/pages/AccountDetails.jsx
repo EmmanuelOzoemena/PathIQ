@@ -2,29 +2,27 @@ import React from "react";
 import { useNavigate, useLocation, Navigate } from "react-router-dom";
 import { HiPencilAlt } from "react-icons/hi";
 import AuthLayout from "../../../layouts/AuthLayout";
-import { Button } from "../../../components/ui/Button";
 import ParentSidebar from "../components/ParentSidebar";
 import StudentSidebar from "../components/StudentSidebar";
+import { StudentForm } from "../components/StudentForm";
+import { ParentForm } from "../components/ParentForm";
 
 const AccountDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Get the role from the navigation state
-  const role = location.state?.role || "student";
+  // Get the role from navigation state (fallback to null to trigger redirect)
+  const role = location.state?.role;
+
+  // If no role is selected, redirect back to role selection
+  if (!role) {
+    return <Navigate to="/select-role" replace />;
+  }
 
   // Sidebar logic
   const renderSidebar = () => {
-    if (role === "parent") return <ParentSidebar />;
-
-    return <StudentSidebar />;
+    return role === "parent" ? <ParentSidebar /> : <StudentSidebar />;
   };
-
-  // If someone tries to visit /signup/details directly without picking a role,
-  // send them back to the selection screen
-  if (!role) {
-    return <Navigate to="/select-role" />;
-  }
 
   return (
     <AuthLayout customSidebarContent={renderSidebar()}>
@@ -33,10 +31,10 @@ const AccountDetails = () => {
           Create {role === "parent" ? "Parent" : "Student"} Account
         </h1>
 
-        {/* Role Switcher */}
+        {/* Role Switcher Badge */}
         <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 px-3 py-1 rounded-full mb-6">
           <span className="text-xs text-blue-800 font-medium">
-            Signing up as {role === "parent" ? "Parent" : "Student"}
+            Signing up as {role.charAt(0).toUpperCase() + role.slice(1)}
           </span>
           <button
             onClick={() => navigate("/select-role")}
@@ -47,7 +45,7 @@ const AccountDetails = () => {
           </button>
         </div>
 
-        {/* Stepper (Simplified for demo) */}
+        {/* Stepper */}
         <div className="flex items-center gap-4 mb-8">
           <div className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-sm">
             ✓
@@ -62,75 +60,12 @@ const AccountDetails = () => {
           </div>
         </div>
 
-        {/* Form Fields - These stay largely the same for both */}
-        <form className="space-y-4">
-          <div className="flex gap-4">
-            <div className="flex-1">
-              <label className="block text-[#001D66] text-[11px] font-bold mb-1">
-                First Name
-              </label>
-              <input
-                type="text"
-                placeholder="John"
-                className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-              />
-            </div>
-            <div className="flex-1">
-              <label className="block text-[#001D66] text-[11px] font-bold mb-1">
-                Last Name
-              </label>
-              <input
-                type="text"
-                placeholder="Noah"
-                className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-[#001D66] text-[11px] font-bold mb-1">
-              Email Address
-            </label>
-            <input
-              type="email"
-              placeholder="johnnoah@email.com"
-              className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="block text-[#001D66] text-[11px] font-bold mb-1">
-              Child's Full Name
-            </label>
-            <input
-              type="text"
-              placeholder="e.g. Tasha Noah"
-              className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="block text-[#001D66] text-[11px] font-bold mb-1">
-              Password
-            </label>
-            <input
-              type="password"
-              placeholder="****************"
-              className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-            />
-            {/* Strength Meter */}
-            <div className="flex gap-1 mt-2">
-              <div className="h-1 flex-1 bg-green-500 rounded-full"></div>
-              <div className="h-1 flex-1 bg-green-500 rounded-full"></div>
-              <div className="h-1 flex-1 bg-green-500 rounded-full"></div>
-              <div className="h-1 flex-1 bg-red-400 rounded-full"></div>
-            </div>
-          </div>
-
-          <Button className="mt-4">
-            Create {role === "parent" ? "Parent" : "Student"} Account
-          </Button>
-        </form>
+        {/* Conditional Form Rendering */}
+        {role === "parent" ? (
+          <ParentForm />
+        ) : (
+          <StudentForm />
+        )}
       </div>
     </AuthLayout>
   );

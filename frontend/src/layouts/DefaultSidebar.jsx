@@ -3,9 +3,18 @@ import React from "react";
 const DefaultSidebar = () => {
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight mb-8">
-        PathIQ
-      </h1>
+      {/* <h1 className="text-2xl font-bold tracking-tight mb-8">
+        Path <br /> IQ
+      </h1> */}
+
+      <div className="flex items-center gap-3 mb-10">
+        <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/30">
+          P
+        </div>
+        <span className="text-white text-2xl font-black tracking-tighter">
+          Path<span className="text-blue-400">IQ</span>
+        </span>
+      </div>
 
       <span className="inline-block border border-white/30 rounded-full px-4 py-1 text-sm mb-6">
         Welcome
@@ -16,8 +25,10 @@ const DefaultSidebar = () => {
       </h2>
 
       <p className="text-blue-100 text-lg max-w-md mb-12">
-        PathIQ builds personalised AI-powered study paths for students aged
-        12-25 tailored to your goals, your pace, your exam.
+        An educational platform designed to help students learn, track, and
+        achieve their exam goals. With PATHIQ, students can access a wide range
+        of courses, track their progress, and get personalized recommendations
+        to maximize their learning experience.
       </p>
 
       {/* Stats Row */}

@@ -2,13 +2,19 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import AuthLayout from "../../../layouts/AuthLayout";
 import { Button } from "../../../components/ui/Button";
+import { socialAuth } from "../../../services/auth";
+
 
 const SignUp = () => {
   const navigate = useNavigate(); 
 
   const handleCreateAccount = () => {
-    // Later, add API calls here
     navigate("/select-role");
+  };
+
+  // Redirect to Google Route
+  const handleGoogleSignup = () => {
+    window.location.href = socialAuth.google;
   };
 
   return (
@@ -25,6 +31,7 @@ const SignUp = () => {
         <div className="flex gap-4 mb-6">
           <Button
             variant="outline"
+            onClick={handleGoogleSignup}
             className="flex items-center justify-center gap-2 text-sm"
           >
             <span className="font-bold">G</span> Google
@@ -33,7 +40,7 @@ const SignUp = () => {
             variant="outline"
             className="flex items-center justify-center gap-2 text-sm"
           >
-            <span className="font-bold">f</span> Facebook
+            <span className="font-bold">X</span> Twitter
           </Button>
         </div>
 

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AuthLayout from "../../../layouts/AuthLayout";
 import { Button } from "../../../components/ui/Button";
 import RoleCard from "../components/RoleCard";
+// import  pathIqLogo  from "../../../assets/pathiq-logo.png";
 
 const SelectRole = () => {
   const [selectedRole, setSelectedRole] = useState("student");
@@ -18,9 +19,20 @@ const SelectRole = () => {
       customSidebarContent={
         <div>
           {/* Overriding the default sidebar content for this specific screen */}
-          <h1 className="text-2xl font-bold tracking-tight mb-8">
+          {/* <h1 className="text-2xl font-bold tracking-tight mb-8">
             Path <br /> IQ
-          </h1>
+          </h1> */}
+
+          <div className="flex items-center gap-3 mb-10">
+            <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/30">
+              P
+              {/* <img src={pathIqLogo} alt="logo" /> */}
+            </div>
+            <span className="text-white text-2xl font-black tracking-tighter">
+              Path<span className="text-blue-400">IQ</span>
+            </span>
+          </div>
+
           <span className="inline-block border border-white/30 rounded-full px-4 py-1 text-sm mb-6">
             Student Sign Up
           </span>
@@ -108,7 +120,7 @@ const SelectRole = () => {
             Continue as{" "}
             {selectedRole.charAt(0).toUpperCase() + selectedRole.slice(1)}
           </Button>
-          <Button   onClick={() => navigate("/signin")} variant="outline">Sign in</Button>
+          <Button variant="outline">Sign in</Button>
         </div>
       </div>
     </AuthLayout>
